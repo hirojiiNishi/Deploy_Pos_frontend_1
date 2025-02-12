@@ -22,7 +22,7 @@ export default function Home() {
   // 商品検索
   const fetchProduct = async () => {
     try {
-      const res = await axios.get(`https:tech0-gen8-step4-pos-app-36.azurewebsites.net/product/${barcode}`);
+      const res = await axios.get(`https://tech0-gen8-step4-pos-app-36.azurewebsites.net/product/${barcode}`);
       if (res.data.product) {
         setProduct(res.data.product);
       } else {
@@ -38,7 +38,7 @@ export default function Home() {
   const addToCart = async () => {
     if (!product) return;
     try {
-      const res = await axios.post("https:tech0-gen8-step4-pos-app-36.azurewebsites.net/cart/add", {
+      const res = await axios.post("https://tech0-gen8-step4-pos-app-36.azurewebsites.net/cart/add", {
         prd_id: product.prd_id,
         code: product.code,
         name: product.name,
@@ -80,7 +80,7 @@ export default function Home() {
     console.log("送信データ:", JSON.stringify(requestData, null, 2));
   
     try {
-      const res = await axios.post("https:tech0-gen8-step4-pos-app-36.azurewebsites.net/purchase", requestData);
+      const res = await axios.post("https://tech0-gen8-step4-pos-app-36.azurewebsites.net/purchase", requestData);
       console.log("購入成功", res.data);
   
       // 合計金額（税込）の計算（仮に税率10%とする）
